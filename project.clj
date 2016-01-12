@@ -33,7 +33,16 @@
                  [org.clojure/core.async "0.2.374"]
                  [cljs-ajax "0.5.2"]
                  [org.webjars/webjars-locator-jboss-vfs "0.1.0"]
-                 [luminus-immutant "0.1.0"]]
+                 [luminus-immutant "0.1.0"]
+
+                 ;;datomic & datascript
+                 [com.datomic/datomic-free "0.9.5344"]
+                 [datascript "0.14.0"]
+                 ;;re-frame & re-com
+                 [re-frame "0.7.0-alpha"]
+                 [re-com "0.8.0"]
+                 ;;sente
+                 [com.taoensso/sente "1.7.0"]]
 
   :min-lein-version "2.0.0"
   :uberjar-name "veritas.jar"
