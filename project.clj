@@ -25,7 +25,7 @@
                  [migratus "0.8.8"]
                  [conman "0.2.8"]
                  [org.postgresql/postgresql "9.4-1206-jdbc4"]
-                 [org.clojure/clojurescript "1.7.170" :scope "provided"]
+                 [org.clojure/clojurescript "1.7.228" :scope "provided"]
                  [reagent "0.5.1"]
                  [reagent-forms "0.5.13"]
                  [reagent-utils "0.1.7"]
@@ -35,14 +35,20 @@
                  [org.webjars/webjars-locator-jboss-vfs "0.1.0"]
                  [luminus-immutant "0.1.0"]
 
-                 ;;datomic & datascript
-                 [com.datomic/datomic-free "0.9.5344"]
-                 [datascript "0.14.0"]
-                 ;;re-frame & re-com
-                 [re-frame "0.7.0-alpha"]
-                 [re-com "0.8.0"]
-                 ;;sente
-                 [com.taoensso/sente "1.7.0"]]
+                 [com.datomic/datomic-free "0.9.5344"
+                  :exclusions [org.slf4j/slf4j-nop
+                               org.slf4j/log4j-over-slf4j
+                               joda-time
+                               commons-codec
+                               org.jboss.logging/jboss-logging]]
+
+                 ;[datascript "0.14.0"]
+                 ;;;re-frame & re-com
+                 ;[re-frame "0.7.0-alpha"]
+                 ;[re-com "0.8.0"]
+                 ;;;sente
+                 ;[com.taoensso/sente "1.7.0"]
+                 ]
 
   :min-lein-version "2.0.0"
   :uberjar-name "veritas.jar"
@@ -84,7 +90,8 @@
              :source-paths ["env/prod/clj"]}
    :dev           [:project/dev :profiles/dev]
    :test          [:project/test :profiles/test]
-   :project/dev  {:dependencies [[prone "1.0.0"]
+   :project/dev  {:dependencies [[org.clojure/clojurescript "1.7.228" :scope "provided"]
+                                 [prone "1.0.0"]
                                  [ring/ring-mock "0.3.0"]
                                  [ring/ring-devel "1.4.0"]
                                  [pjstadig/humane-test-output "0.7.1"]
